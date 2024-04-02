@@ -1,16 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Home from './pages/Home';
-import './utils/style/index.scss';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import KasaRoutes from './utils/kasaRoutes.jsx';
+import './utils/index.scss';
+import { createRoot } from 'react-dom/client';
+import { ThemeProvider } from './context/themeContext.jsx';
 
-ReactDOM.render(
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+    <ThemeProvider>
+      <KasaRoutes />
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
 );

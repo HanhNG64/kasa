@@ -1,0 +1,36 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  width: 100%;
+  max-width: 1240px;
+  height: 68px;
+
+  & img {
+    width: 210px;
+  }
+
+  & .header-navigation {
+    display: flex;
+    align-items: center;
+    gap: 57px;
+
+    & .nav-link {
+      display: flex;
+      align-items: end;
+      color: black;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    & .nav-link-active {
+      display: flex;
+      align-items: end;
+      color: black;
+      font-size: 24px;
+      &::after {
+        text-decoration: solid;
+      }
+    }
+  }
+}
