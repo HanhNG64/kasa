@@ -3,7 +3,11 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: 43px;
+  gap: 38px;
 
-  background-color: aquamarine;
+  &__collapse {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 }

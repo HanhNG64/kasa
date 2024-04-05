@@ -1,9 +1,11 @@
-function Error() {
+import Error from '../components/error';
+
+function ErrorPage() {
   return (
-    <div>
-      <h1>404 - La page n'existe pas</h1>
-    </div>
+    <>
+      <Error />
+    </>
   );
 }
 
-export default Error;
+export default ErrorPage;

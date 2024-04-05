@@ -1,7 +1,72 @@
-.Carousel {
+@use 'styleGlobal' as styleGlobal;
+
+$arrow-outer-pos: 23px;
+
+.full-size {
   width: 100%;
   height: 415px;
+}
 
-  background-size: cover;
-  background-position: center;
+.arrow-size {
+  position: absolute;
+  top: 149px;
+  width: 46.68px;
+  height: 79.2px;
+  cursor: pointer;
+}
+
+.Carousel {
+  @extend .full-size;
+  border-radius: styleGlobal.$border-radius;
+  background-color: lightgray; //couleur de secours
+  position: relative;
+
+  &__logement {
+    @extend .full-size;
+    border-radius: inherit;
+  }
+
+  &__previous {
+    left: $arrow-outer-pos;
+    @extend .arrow-size;
+
+    &:hover {
+      width: 60px;
+      height: 90px;
+    }
+  }
+
+  &__next {
+    right: $arrow-outer-pos;
+    @extend .arrow-size;
+
+    &:hover {
+      width: 60px;
+      height: 90px;
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    font-size: 18px;
+    color: styleGlobal.$text-color;
+  }
+
+  $cd-btn: #011c37;
+  $cd-txt: #15dea5;
+  .btn {
+    background: $cd-btn;
+    color: $cd-txt;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+    border-radius: 10rem;
+    transform: scale(0.2);
+    transition: transform 400ms;
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
 }

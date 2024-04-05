@@ -32,7 +32,7 @@ function Header() {
         <NavLink
           onClick={aboutClick}
           className={(nav) => (nav.isActive ? 'nav-link-active' : 'nav-link')}
-          to="/propos"
+          to="/about"
         >
           A propos
         </NavLink>

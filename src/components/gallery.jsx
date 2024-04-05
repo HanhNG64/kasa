@@ -4,13 +4,13 @@ import AppartCard from './appartCard.jsx';
 
 function Gallery() {
   const { appartments } = useFetch('logements.json');
-
   return (
     <div className="Gallery">
       {appartments?.map((appartment) => (
         <AppartCard
           key={appartment.id}
-          appartementTitle={appartment.title}
+          appartmentId={appartment.id}
+          appartmentTitle={appartment.title}
           imageUrl={appartment.cover}
         />
       ))}

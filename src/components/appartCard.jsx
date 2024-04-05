@@ -1,22 +1,17 @@
 import '../utils/appartCard.scss';
 import { Link } from 'react-router-dom';
 
-function AppartCard({ appartementTitle, imageUrl }) {
+function AppartCard({ appartmentId, appartmentTitle, imageUrl }) {
+  const state = {
+    appId: appartmentId,
+  };
+  // const appId = appartmentId;
   return (
-    <Link
-      className="AppartCard"
-      to="/appartment"
-      // style={{ backgroundImage: `url(${bannerImage})` }}
-    >
-      {/* 1 <h3>{appartementTitle}</h3> */}
-      {/* 2 <img src={bannerImage} alt="location" />
-      <div className="Thumbnail__layer">
-        <h3 className="Thumbnail__title">{appartementTitle}</h3>
-      </div> */}
-
+    <Link className="AppartCard" to="appartment" state={state}>
+      {/* <Link className="AppartCard" to={`appartment/${appId}`}> */}
       <div className="AppartCard__layer" />
       <img src={imageUrl} alt="appartment" />
-      <div className="AppartCard__title">{appartementTitle}</div>
+      <div className="AppartCard__title">{appartmentTitle}</div>
     </Link>
   );
 }
