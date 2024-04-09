@@ -1,10 +1,11 @@
 import React from 'react';
-import Home from '../pages/homePage.jsx';
-import About from '../pages/aboutPage.jsx';
-import Appartment from '../pages/appartmentPage.jsx';
+import Home from '../pages/homePage/homePage.jsx';
+import About from '../pages/aboutPage/aboutPage.jsx';
+import Appartment from '../pages/logementPage/logementPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ErrorPage from '../pages/errorPage.jsx';
-import Layout from '../components/layout.jsx';
+import ErrorPage from '../pages/errorPage/errorPage.jsx';
+import Layout from './layout.jsx';
+import Main from '../components/main.jsx';
 
 function KasaRoutes() {
   return (
@@ -14,7 +15,6 @@ function KasaRoutes() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
-            {/* <Route path="appartment/:id" element={<Appartment />} /> */}
             <Route path="appartment" element={<Appartment />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>

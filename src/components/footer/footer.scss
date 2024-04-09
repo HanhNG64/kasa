@@ -1,0 +1,25 @@
+@import '../../utils/style/global.scss';
+
+.Footer {
+  width: 100%;
+  height: 209px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  background-color: $secondary-color;
+
+  & img {
+    width: 122px;
+    height: 39.444px;
+  }
+
+  & p {
+    font-size: 24px;
+    text-align: center;
+    width: 513px;
+    height: 46px;
+    margin: 0;
+  }
+}

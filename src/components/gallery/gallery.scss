@@ -1,0 +1,12 @@
+@import '../../utils/style/global.scss';
+
+.Gallery {
+  max-height: 829px;
+  overflow-y: auto;
+  display: grid;
+  padding: 56px 50px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  background-color: #f6f6f6;
+  border-radius: $border-radius;
+}

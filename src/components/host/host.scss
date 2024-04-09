@@ -1,0 +1,26 @@
+@import '../../utils/style/global.scss';
+
+.Host {
+  display: flex;
+  gap: 10px;
+  margin-right: 5px;
+
+  &__name {
+    height: 52px;
+    color: $primary-color;
+    align-self: center;
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  &__photo {
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: #c4c4c4;
+    }
+  }
+}

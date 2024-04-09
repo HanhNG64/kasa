@@ -1,0 +1,27 @@
+@import '../../utils/style/global.scss';
+
+.Information {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+
+    &__host {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 21px;
+    }
+  }
+}
+
+.Information__details {
+  display: flex;
+  gap: 76px;
+}
+.Information__description__List {
+  list-style-type: none;
+}
