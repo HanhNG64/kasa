@@ -22,8 +22,23 @@ $arrow-outer-pos: 23px;
   position: relative;
 
   &__logement {
+    position: relative;
     @extend .full-size;
     border-radius: inherit;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    &__item {
+      @extend .full-size;
+      min-width: 100%;
+      border-radius: inherit;
+
+      img {
+        @extend .full-size;
+        border-radius: inherit;
+      }
+    }
   }
 
   &__previous {
@@ -31,18 +46,17 @@ $arrow-outer-pos: 23px;
     @extend .arrow-size;
 
     &:hover {
-      width: 60px;
-      height: 90px;
+      transform: scale(1.2);
     }
   }
 
   &__next {
     right: $arrow-outer-pos;
     @extend .arrow-size;
+    animation: transform 1s ease-in;
 
     &:hover {
-      width: 60px;
-      height: 90px;
+      transform: scale(1.2);
     }
   }
 
@@ -52,21 +66,5 @@ $arrow-outer-pos: 23px;
     right: 50%;
     font-size: 18px;
     color: styleGlobal.$text-color;
-  }
-
-  $cd-btn: #011c37;
-  $cd-txt: #15dea5;
-  .btn {
-    background: $cd-btn;
-    color: $cd-txt;
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 1.85rem 3rem;
-    border-radius: 10rem;
-    transform: scale(0.2);
-    transition: transform 400ms;
-    &:hover {
-      transform: scale(1.15);
-    }
   }
 }

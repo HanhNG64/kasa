@@ -16,22 +16,34 @@ function Carousel(props) {
 
   function previous() {
     const index = currentIndex > 1 ? currentIndex - 1 : numberOfIpictures;
+
     setCurrentIndex(index);
+    const widthSlider =
+      document.querySelector('.Carousel__logement').offsetWidth * (index - 1);
+
+    document.querySelector('.Carousel__logement').scrollLeft = widthSlider;
   }
 
   function next() {
     const index = currentIndex < numberOfIpictures ? currentIndex + 1 : 1;
+
     setCurrentIndex(index);
+
+    const widthSlider =
+      document.querySelector('.Carousel__logement').offsetWidth * (index - 1);
+    document.querySelector('.Carousel__logement').scrollLeft = widthSlider;
   }
 
   return (
     <div className="Carousel">
-      <div className="btn">Vois comme je grandis !</div>
-      <img
-        className="Carousel__logement"
-        src={pictures[currentIndex - 1]}
-        alt="logment"
-      ></img>
+      <div className="Carousel__logement">
+        {pictures.map((imageUrl, index) => (
+          <div key={imageUrl + index} className="Carousel__logement__item">
+            <img key={imageUrl} src={imageUrl} alt={`apprtment ${index + 1}`} />
+          </div>
+        ))}
+      </div>
+
       {display && (
         <img
           className="Carousel__previous"
@@ -54,4 +66,3 @@ function Carousel(props) {
 }
 
 export default Carousel;
-// navigate("/404", { state: { message: "Can't get data" } }); //renvoi vers la page 404 en cas d'URL de logement invalide
