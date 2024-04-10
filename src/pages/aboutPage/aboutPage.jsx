@@ -7,7 +7,7 @@ import aboutData from '../../data/about.json';
 function About() {
   return (
     <div className="About">
-      <Banner imageUrl={bannerImage} />
+      {/* <Banner imageUrl={bannerImage} /> */}
       <div className="About__collapse">
         {aboutData?.map((data) => (
           <Collapse

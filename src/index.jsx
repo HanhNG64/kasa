@@ -1,13 +1,14 @@
-import React from 'react';
-import KasaRoutes from './utils/kasaRoutes.jsx';
 import './utils/index.scss';
-import { createRoot } from 'react-dom/client';
-import { ThemeProvider } from './utils/context/themeContext.jsx';
+import React from 'react';
+import ThemeProvider from './utils/context/themeContext.jsx';
+import App from './app.jsx';
+import ReactDOM from 'react-dom/client';
 
-createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <KasaRoutes />
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
 );

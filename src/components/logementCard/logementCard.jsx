@@ -5,10 +5,10 @@ function AppartCard({ appartmentId, appartmentTitle, imageUrl }) {
   const state = {
     appId: appartmentId,
   };
-  // const appId = appartmentId;
+
   return (
     <Link className="AppartmentCard" to="appartment" state={state}>
-      {/* <Link className="AppartCard" to={`appartment/${appId}`}> */}
+      {/* <Link className="AppartmentCard" to={`/appartment/${appartmentId}`}> */}
       <div className="AppartmentCard__layer" />
       <img src={imageUrl} alt="appartment" />
       <div className="AppartmentCard__title">{appartmentTitle}</div>
