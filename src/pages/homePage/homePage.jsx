@@ -6,7 +6,7 @@ import bannerImage from '../../assets/falaise.png';
 function Home() {
   return (
     <div className="Home">
-      {/* <Banner imageUrl={bannerImage} text=" Chez vous, partout et ailleurs" /> */}
+      <Banner imageUrl={bannerImage} text=" Chez vous, partout et ailleurs" />
       <Gallery />
     </div>
   );
