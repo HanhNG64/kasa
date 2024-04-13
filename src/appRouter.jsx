@@ -9,7 +9,7 @@ import ErrorPage from './pages/errorPage/errorPage.jsx';
 import Layout from './components/layout/layout.jsx';
 import './components/layout/layout.scss';
 
-function App() {
+function AppRouter() {
   return (
     <Router>
       <Routes>
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRouter;

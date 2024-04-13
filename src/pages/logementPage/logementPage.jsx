@@ -3,6 +3,7 @@ import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import { useFetch } from '../../data/data';
 import SlideShow from '../../components/slideShow/slideShow';
 import LogementInformation from '../../components/logementInformation/logementInformation';
+import ErrorPage from '../errorPage/errorPage.jsx';
 
 function Logement() {
   const navigate = useNavigate();
@@ -28,7 +29,8 @@ function Logement() {
       <LogementInformation logement={logement} />
     </div>
   ) : (
-    navigate('*')
+    ErrorPage()
+    // navigate('*')
   );
 }
 
