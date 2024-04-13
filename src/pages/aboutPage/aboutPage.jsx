@@ -3,12 +3,21 @@ import bannerImage from '../../assets/kalen-emsley-Bkci.png';
 import Banner from '../../components/banner/banner';
 import Collapse from '../../components/collapse/collapse';
 import aboutData from '../../data/about.json';
+import { useEffect } from 'react';
+import { useTheme } from '../../utils/hooks/kasaHooks';
 
 function About() {
+  const { theme, toggleTheme } = useTheme();
+  useEffect(() => {
+    if (theme === 'dark') {
+      toggleTheme();
+    }
+  }, []);
+
   return (
     <div className="About">
       <Banner imageUrl={bannerImage} />
-      <div className="About__collapse">
+      <section className="About__collapse">
         {aboutData?.map((data) => (
           <Collapse
             key={data.aboutTitle}
@@ -17,7 +26,7 @@ function About() {
             alignSelf={'alignSelf'}
           />
         ))}
-      </div>
+      </section>
     </div>
   );
 }

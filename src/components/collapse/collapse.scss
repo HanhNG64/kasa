@@ -1,52 +1,80 @@
 @import '../../utils/style/global.scss';
 
+$animation-duration: 0.3s;
+
+@mixin arrowRotation($deg) {
+  transform: rotate($deg);
+  transition: $animation-duration ease-in-out;
+}
+
+@mixin contentAnimation($anim) {
+  position: relative;
+  z-index: -1;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  animation: $anim $animation-duration forwards;
+}
+
 .Collapse {
   max-width: 1023px;
-  width: 100%;
+  width: 90%;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 
   &__title {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
-    padding: 10px 20px 10px 10px; //diff entre about et appart
+
+    padding: 10px 20px 10px 10px;
     background-color: $primary-color;
-    border-radius: 5px;
+    border-radius: 10px;
+
+    @media (max-width: 768px) {
+      padding: 0 10px;
+      border-radius: 5px;
+      height: 100%;
+    }
 
     p {
+      margin: 0;
       display: flex;
-      align-items: center;
-      font-size: 18px; //appart
-      //font-size: 24px;//about
+      flex-direction: column;
+      justify-content: flex-end;
+
+      font-size: 18px;
       font-weight: 700;
       color: $text-color;
-      margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 13px;
+        align-self: center;
+      }
     }
 
     img {
-      width: 32px;
-      height: 32px;
+      @include image-size(32px, 32px);
       cursor: pointer;
     }
 
     &--open {
-      transform: rotate(-180deg);
-      transition: 0.3s ease-in-out;
+      @include arrowRotation(-180deg);
     }
 
     &--close {
-      transform: rotate(0deg);
-      transition: 0.3s ease-in-out;
+      @include arrowRotation(0deg);
     }
   }
 
-  &__content {
-    position: relative;
-    z-index: -1;
-    padding: 20px;
-    background-color: #fbfbfb;
-    border-radius: 5px;
-    animation: open 0.3s ease-in-out;
+  &__content--open {
+    @include contentAnimation(open);
+  }
+
+  &__content--close {
+    @include contentAnimation(close);
   }
 }
 
@@ -64,20 +92,24 @@
   from {
     transform: translateY(-100%);
     opacity: 0;
+    max-height: 0px;
   }
   to {
     transform: translateY(0);
     opacity: 1;
+    max-height: 500px;
   }
 }
 
 @keyframes close {
   from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
     transform: translateY(0);
     opacity: 1;
+    max-height: 500px;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+    max-height: 0;
   }
 }

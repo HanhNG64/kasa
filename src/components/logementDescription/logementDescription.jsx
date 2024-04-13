@@ -1,6 +1,6 @@
-import './appartmentDescription.scss';
+import './logementDescription.scss';
 
-function AppartmentDescription({ title, location, tags }) {
+function LogementDescription({ title, location, tags }) {
   return (
     <div className="Description">
       <h2>{title}</h2>
@@ -14,4 +14,4 @@ function AppartmentDescription({ title, location, tags }) {
   );
 }
 
-export default AppartmentDescription;
+export default LogementDescription;

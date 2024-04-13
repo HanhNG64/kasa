@@ -1,26 +1,35 @@
 import './logementPage.scss';
-import { useLocation, useParams } from 'react-router-dom';
-import { useFetch, useFetchAppartment } from '../../data/data';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useFetch } from '../../data/data';
 import SlideShow from '../../components/slideShow/slideShow';
-import AppartmentInformation from '../../components/appartmentInformation/appartmentInformation';
+import LogementInformation from '../../components/logementInformation/logementInformation';
 
-function Appartment() {
-  const location = useLocation();
-  const appId = location.state.appId;
-  // const { appId } = useParams();
-  const { appartment } = useFetchAppartment('logements.json', appId);
+function Logement() {
+  const navigate = useNavigate();
+  // const location = useLocation();
+  // const appId = location.state.appId;
+  const { id } = useParams();
 
-  // const appartment = null;
-  if (appartment == null) {
-    return <div className="Appartment">...</div>;
+  const { logements, isLoading, error } = useFetch('logements.json');
+
+  if (error) {
+    return <div className="FetchProblem">Erreur de récupération de ...</div>;
   }
 
-  return (
-    <div className="Appartment">
-      <SlideShow imageUrl={appartment.cover} pictures={appartment.pictures} />
-      <AppartmentInformation appartment={appartment} />
+  if (isLoading) {
+    return <div className="Loading">En chargement ...</div>;
+  }
+
+  const logement = logements.find((item) => item.id === id);
+
+  return logement ? (
+    <div className="Logement">
+      <SlideShow imageUrl={logement.cover} pictures={logement.pictures} />
+      <LogementInformation logement={logement} />
     </div>
+  ) : (
+    navigate('*')
   );
 }
 
-export default Appartment;
+export default Logement;

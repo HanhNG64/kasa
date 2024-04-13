@@ -1,0 +1,48 @@
+@import '../../utils/style/global.scss';
+
+.Information {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  // Mobile
+  @media (max-width: 768px) {
+    gap: 13px;
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+
+    // Mobile
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__host {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 21px;
+
+      // Mobile
+      @media (max-width: 768px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    gap: 76px;
+
+    // Mobile
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

@@ -16,11 +16,17 @@ function Collapse({ title, content = null, alignSelf = null }) {
         <img
           className={open ? 'Collapse__title--open' : 'Collapse__title--close'}
           src={arrow}
-          alt="arrow"
+          alt="flèche "
           onClick={collapse}
         />
       </div>
-      {open && <div className="Collapse__content">{content}</div>}
+      <div
+        className={
+          open ? 'Collapse__content--open' : 'Collapse__content--close'
+        }
+      >
+        {content}
+      </div>
     </div>
   );
 }

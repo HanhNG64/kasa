@@ -7,6 +7,22 @@
   padding: 56px 50px;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
+
   background-color: #f6f6f6;
-  border-radius: $border-radius;
+  border-radius: $border-radius-large;
+
+  // Tablette
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 35px;
+    gap: 35px;
+  }
+
+  // Mobile
+  @media (max-width: 768px) {
+    padding: 0;
+    background-color: white;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }

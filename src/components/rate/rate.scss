@@ -1,0 +1,11 @@
+@import '../../utils/style/global.scss';
+
+.Rate {
+  svg {
+    @include size(196px, 36px);
+
+    @media (max-width: 768px) {
+      @include size(98px, 18px);
+    }
+  }
+}

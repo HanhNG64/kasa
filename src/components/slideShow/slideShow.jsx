@@ -1,52 +1,47 @@
 import './slideShow.scss';
 import { useState } from 'react';
-import arrowLeft from '../../assets/arrow-left.png';
-import arrowRight from '../../assets/arrow-right.png';
+import arrowLeft from '../../assets/arrow-slideShow.svg';
 
 function SlideShow(props) {
   const pictures = props.pictures ? props.pictures : [];
   const numberOfIpictures = pictures.length;
   const display = numberOfIpictures > 1;
 
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   function buildCounterText() {
-    return currentIndex >= 1 ? currentIndex + '/' + numberOfIpictures : '';
+    return numberOfIpictures >= 2
+      ? currentIndex + 1 + '/' + numberOfIpictures
+      : '';
   }
 
   function previous() {
-    const index = currentIndex > 1 ? currentIndex - 1 : numberOfIpictures;
-
+    const index = currentIndex >= 1 ? currentIndex - 1 : numberOfIpictures - 1;
     setCurrentIndex(index);
-    const widthSlider =
-      document.querySelector('.Carousel__logement').offsetWidth * (index - 1);
-
-    document.querySelector('.Carousel__logement').scrollLeft = widthSlider;
   }
 
   function next() {
-    const index = currentIndex < numberOfIpictures ? currentIndex + 1 : 1;
-
+    const index = currentIndex < numberOfIpictures - 1 ? currentIndex + 1 : 0;
     setCurrentIndex(index);
-
-    const widthSlider =
-      document.querySelector('.Carousel__logement').offsetWidth * (index - 1);
-    document.querySelector('.Carousel__logement').scrollLeft = widthSlider;
   }
 
+  const currentImage = {
+    transform: `translateX(-${currentIndex * 100}%)`,
+  };
+
   return (
-    <div className="Carousel">
-      <div className="Carousel__logement">
+    <section className="SlideShow">
+      <article className="SlideShow__logement" style={currentImage}>
         {pictures.map((imageUrl, index) => (
-          <div key={imageUrl + index} className="Carousel__logement__item">
-            <img key={imageUrl} src={imageUrl} alt={`apprtment ${index + 1}`} />
+          <div key={imageUrl + index} className="SlideShow__logement__item">
+            <img key={imageUrl} src={imageUrl} alt={`logement ${index + 1}`} />
           </div>
         ))}
-      </div>
+      </article>
 
       {display && (
         <img
-          className="Carousel__previous"
+          className="SlideShow__previous"
           src={arrowLeft}
           alt="arrow previous"
           onClick={previous}
@@ -54,14 +49,14 @@ function SlideShow(props) {
       )}
       {display && (
         <img
-          className="Carousel__next"
-          src={arrowRight}
+          className="SlideShow__next"
+          src={arrowLeft}
           alt="arrow next"
           onClick={next}
         />
       )}
-      {display && <p className="Carousel__counter">{buildCounterText()}</p>}
-    </div>
+      {display && <p className="SlideShow__counter">{buildCounterText()}</p>}
+    </section>
   );
 }
 

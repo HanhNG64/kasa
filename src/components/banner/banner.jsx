@@ -5,12 +5,12 @@ function Banner({ imageUrl, text = null }) {
   const { theme } = useTheme();
 
   return (
-    <div
+    <section
       className={`Banner ${theme}`}
       style={{ backgroundImage: `url(${imageUrl})` }}
     >
-      {text}
-    </div>
+      {text && <h1>{text}</h1>}
+    </section>
   );
 }
 

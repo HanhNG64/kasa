@@ -2,61 +2,93 @@
 
 $arrow-outer-pos: 23px;
 
-.full-size {
-  width: 100%;
-  height: 415px;
+@mixin full-size {
+  @include size(100%, 415px);
+  min-width: 100%;
 }
 
-.arrow-size {
+@mixin small-size {
+  height: 255px;
+}
+
+@mixin arrow-pos {
   position: absolute;
   top: 149px;
-  width: 46.68px;
-  height: 79.2px;
   cursor: pointer;
 }
 
-.Carousel {
-  @extend .full-size;
-  border-radius: $border-radius;
-  background-color: lightgray; //couleur de secours
+@mixin arrow-size($top, $width, $height) {
+  top: $top;
+  @include size($width, $height);
+}
+
+@mixin arrow($rotation) {
+  transform: rotate($rotation);
+  padding-left: 10px;
+  @include arrow-size(149px, 46.68px, 79.2px);
+  @include arrow-pos;
+}
+
+.SlideShow {
+  @include full-size;
+  border-radius: $border-radius-large;
+  background-color: lightgray;
   position: relative;
+
+  @media (max-width: 768px) {
+    @include small-size;
+    border-radius: $border-radius-small;
+  }
 
   &__logement {
     position: relative;
-    @extend .full-size;
+    @include full-size;
     border-radius: inherit;
     display: flex;
-    overflow: hidden;
-    scroll-behavior: smooth;
+    transition: transform 0.5s;
+
+    @media (max-width: 768px) {
+      @include small-size;
+      border-radius: inherit;
+    }
 
     &__item {
-      @extend .full-size;
-      min-width: 100%;
+      @include full-size;
       border-radius: inherit;
 
+      @media (max-width: 768px) {
+        @include small-size;
+      }
+
       img {
-        @extend .full-size;
+        @include full-size;
         border-radius: inherit;
+
+        @media (max-width: 768px) {
+          @include small-size;
+          border-radius: inherit;
+        }
       }
     }
   }
 
   &__previous {
+    @include arrow(0deg);
     left: $arrow-outer-pos;
-    @extend .arrow-size;
 
-    &:hover {
-      transform: scale(1.2);
+    @media (max-width: 768px) {
+      left: 0;
+      @include arrow-size(116px, 16px, 24px);
     }
   }
 
   &__next {
+    @include arrow(180deg);
     right: $arrow-outer-pos;
-    @extend .arrow-size;
-    animation: transform 1s ease-in;
 
-    &:hover {
-      transform: scale(1.2);
+    @media (max-width: 768px) {
+      right: 0;
+      @include arrow-size(116px, 16px, 24px);
     }
   }
 
@@ -66,5 +98,9 @@ $arrow-outer-pos: 23px;
     right: 50%;
     font-size: 18px;
     color: $text-color;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }

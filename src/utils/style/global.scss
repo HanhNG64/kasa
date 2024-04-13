@@ -2,8 +2,20 @@
 $primary-color: #ff6060;
 $secondary-color: #000;
 $text-color: #fff;
-$border-radius: 25px;
+$border-radius-large: 25px;
+$border-radius-small: 10px;
+$header-max-width: 1240px;
 
-// $footer-background-color: black;
-// $grid-background-dark: rgb(0, 0, 0, 0, 0.119);
-// $grid-background-light: #fff;
+@mixin background-img-center() {
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin image-size($width, $height) {
+  @include size($width, $height);
+}

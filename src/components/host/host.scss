@@ -9,18 +9,27 @@
     height: 52px;
     color: $primary-color;
     align-self: center;
+
     p {
       font-size: 18px;
+      text-align: right;
       margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
     }
   }
 
   &__photo {
     img {
-      width: 64px;
-      height: 64px;
+      @include image-size(64px, 64px);
       border-radius: 50%;
       background-color: #c4c4c4;
+
+      @media (max-width: 768px) {
+        @include image-size(32px, 32px);
+      }
     }
   }
 }

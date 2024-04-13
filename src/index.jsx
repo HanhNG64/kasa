@@ -1,4 +1,4 @@
-import './utils/index.scss';
+import './utils/style/index.scss';
 import React from 'react';
 import ThemeProvider from './utils/context/themeContext.jsx';
 import App from './app.jsx';

@@ -1,10 +1,12 @@
+import './rate.scss';
+
 function Rate({ rate }) {
   function fillColor(index) {
     return index <= rate ? '#FF6060' : '#E3E3E3';
   }
 
   return (
-    <div className="Information__rate">
+    <div className="Rate">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="196"

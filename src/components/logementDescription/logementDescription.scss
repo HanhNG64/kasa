@@ -1,0 +1,53 @@
+@import '../../utils/style/global.scss';
+
+.Description {
+  width: 100%;
+
+  h2 {
+    color: $primary-color;
+    font-size: 36px;
+    margin: 0;
+
+    // Mobile
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    margin: 0;
+
+    // Mobile
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  &__tags {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $text-color;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(50px, 100px));
+      font-size: 10px;
+    }
+
+    span {
+      text-align: center;
+      border-radius: 10px;
+      padding: 3px 0;
+      background-color: $primary-color;
+
+      // Mobile
+      @media (max-width: 768px) {
+        border-radius: 5px;
+      }
+    }
+  }
+}

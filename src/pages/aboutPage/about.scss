@@ -3,11 +3,22 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: 38px;
+  gap: 30px;
+
+  padding: 38px 0;
+
+  @media (max-width: 375px) {
+    gap: 20px;
+    padding: 19px 0;
+  }
 
   &__collapse {
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    @media (max-width: 375px) {
+      gap: 20px;
+    }
   }
 }
