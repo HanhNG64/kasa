@@ -16,14 +16,16 @@ function Gallery() {
 
   return (
     <section className="Gallery">
-      {logements?.map((logement) => (
-        <LogementCard
-          key={logement.id}
-          logementId={logement.id}
-          logementTitle={logement.title}
-          imageUrl={logement.cover}
-        />
-      ))}
+      <div className="Gallery__content">
+        {logements?.map((logement) => (
+          <LogementCard
+            key={logement.id}
+            logementId={logement.id}
+            logementTitle={logement.title}
+            imageUrl={logement.cover}
+          />
+        ))}
+      </div>
     </section>
   );
 }

@@ -1,28 +1,44 @@
 @import '../../utils/style/global.scss';
 
-.Gallery {
-  max-height: 829px;
-  overflow-y: auto;
-  display: grid;
-  padding: 56px 50px;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+$bg-color: #f6f6f6;
 
-  background-color: #f6f6f6;
+.Gallery {
+  padding: 56px 50px;
+  background-color: $bg-color;
   border-radius: $border-radius-large;
 
   // Tablette
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
     padding: 35px;
-    gap: 35px;
   }
 
   // Mobile
   @media (max-width: 768px) {
     padding: 0;
-    background-color: white;
-    grid-template-columns: 1fr;
-    gap: 20px;
+  }
+
+  &__content {
+    max-height: 829px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+
+    background-color: $bg-color;
+    border-radius: $border-radius-large;
+
+    // Tablette
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    // Mobile
+    @media (max-width: 768px) {
+      padding: 0;
+      background-color: white;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 }
