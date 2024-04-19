@@ -1,7 +1,6 @@
 import './collapse.scss';
 import { useState } from 'react';
 import arrow from '../../assets/arrow.png';
-import PropTypes from 'prop-types';
 
 function Collapse({ title, content = null, alignSelf = null }) {
   const [open, setOpen] = useState(false);
@@ -31,11 +30,5 @@ function Collapse({ title, content = null, alignSelf = null }) {
     </div>
   );
 }
-
-Collapse.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-  alignSelf: PropTypes.string,
-};
 
 export default Collapse;

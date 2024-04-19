@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function useFetch(url) {
+export function useFetchData(url) {
   const [logements, setLogements] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
