@@ -1,4 +1,5 @@
 import './logementDescription.scss';
+import PropTypes from 'prop-types';
 
 function LogementDescription({ title, location, tags }) {
   return (
@@ -13,5 +14,11 @@ function LogementDescription({ title, location, tags }) {
     </div>
   );
 }
+
+LogementDescription.propTypes = {
+  title: PropTypes.string,
+  location: PropTypes.string,
+  tags: PropTypes.array,
+};
 
 export default LogementDescription;

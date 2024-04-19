@@ -1,0 +1,30 @@
+@import '../../utils/style/global.scss';
+
+$border-width: 1px;
+$dimension: 100px;
+
+.Loader {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 0;
+
+  &__rotation {
+    border: $border-width solid $secondary-color;
+    border-radius: 50%;
+    border-top: $border-width solid white;
+    width: $dimension;
+    height: $dimension;
+    animation: rotate 2s linear infinite;
+    background-color: transparent;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

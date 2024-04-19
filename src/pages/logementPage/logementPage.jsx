@@ -1,14 +1,12 @@
 import './logementPage.scss';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useFetch } from '../../data/data';
 import SlideShow from '../../components/slideShow/slideShow';
 import LogementInformation from '../../components/logementInformation/logementInformation';
 import ErrorPage from '../errorPage/errorPage.jsx';
+import Loader from '../../components/loader/loader.jsx';
 
 function Logement() {
-  const navigate = useNavigate();
-  // const location = useLocation();
-  // const appId = location.state.appId;
   const { id } = useParams();
 
   const { logements, isLoading, error } = useFetch('logements.json');
@@ -18,7 +16,7 @@ function Logement() {
   }
 
   if (isLoading) {
-    return <div className="Loading">En chargement ...</div>;
+    return <Loader />;
   }
 
   const logement = logements.find((item) => item.id === id);
@@ -30,7 +28,6 @@ function Logement() {
     </div>
   ) : (
     ErrorPage()
-    // navigate('*')
   );
 }
 

@@ -1,6 +1,6 @@
 @import '../../utils/style/global.scss';
 
-$show: 0 4px 4px #00000040;
+$shadow: 0 4px 4px #00000040;
 
 @mixin display-flex($height) {
   display: flex;
@@ -16,7 +16,7 @@ $show: 0 4px 4px #00000040;
   @include background-img-center;
   border-radius: $border-radius-large;
   background-blend-mode: darken;
-  box-shadow: $show;
+  box-shadow: $shadow;
 
   color: $text-color;
   text-shadow:
@@ -24,7 +24,7 @@ $show: 0 4px 4px #00000040;
     $secondary-color -1px 1px,
     $secondary-color -1px -1px,
     $secondary-color 1px -1px,
-    $show;
+    $shadow;
 
   // Mobile
   @media (max-width: 768px) {

@@ -1,8 +1,9 @@
 import './rate.scss';
+import PropTypes from 'prop-types';
 
 function Rate({ rate }) {
   function fillColor(index) {
-    return index <= rate ? '#FF6060' : '#E3E3E3';
+    return index <= Number(rate) ? '#FF6060' : '#E3E3E3';
   }
 
   return (
@@ -38,5 +39,9 @@ function Rate({ rate }) {
     </div>
   );
 }
+
+Rate.propTypes = {
+  rate: PropTypes.string,
+};
 
 export default Rate;

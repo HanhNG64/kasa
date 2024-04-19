@@ -1,5 +1,6 @@
 import './banner.scss';
 import { useTheme } from '../../utils/hooks/kasaHooks.jsx';
+import PropTypes from 'prop-types';
 
 function Banner({ imageUrl, text = null }) {
   const { theme } = useTheme();
@@ -13,5 +14,10 @@ function Banner({ imageUrl, text = null }) {
     </section>
   );
 }
+
+Banner.propTypes = {
+  imageUrl: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default Banner;

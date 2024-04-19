@@ -1,6 +1,7 @@
 import './slideShow.scss';
 import { useState } from 'react';
 import arrowLeft from '../../assets/arrow-slideShow.svg';
+import PropTypes from 'prop-types';
 
 function SlideShow(props) {
   const pictures = props.pictures ? props.pictures : [];
@@ -59,5 +60,9 @@ function SlideShow(props) {
     </section>
   );
 }
+
+SlideShow.propTypes = {
+  props: PropTypes.array,
+};
 
 export default SlideShow;

@@ -4,6 +4,7 @@ import Collapse from '../collapse/collapse';
 import Rate from '../rate/rate';
 import Host from '../host/host';
 import LogementDescription from '../logementDescription/logementDescription';
+import PropTypes from 'prop-types';
 
 function LogementInformation({ logement }) {
   const equipments = logement.equipments.map((equipement, index) => (
@@ -33,5 +34,9 @@ function LogementInformation({ logement }) {
     </section>
   );
 }
+
+LogementInformation.propTypes = {
+  logement: PropTypes.object,
+};
 
 export default LogementInformation;
