@@ -21,7 +21,7 @@ function Collapse({ title, content, alignSelf = false }) {
       <div className="Collapse__title">
         <p>{title}</p>
         <img
-          className={open ? 'Collapse__title--open' : 'Collapse__title--close'}
+          className={open ? 'Collapse__title open' : 'Collapse__title'}
           src={arrow}
           alt="flèche "
           onClick={collapse}

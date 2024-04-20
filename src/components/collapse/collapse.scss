@@ -60,12 +60,8 @@ $animation-duration: 0.5s;
       cursor: pointer;
     }
 
-    &--open {
+    &.open {
       @include arrowRotation(-180deg);
-    }
-
-    &--close {
-      @include arrowRotation(0deg);
     }
   }
 
