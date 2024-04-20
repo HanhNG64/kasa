@@ -1,5 +1,5 @@
 const config = {
-  dataUrl: 'logements.json',
+  host: 'logements.json',
 };
 
 module.exports = config;

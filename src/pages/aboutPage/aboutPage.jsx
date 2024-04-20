@@ -23,7 +23,7 @@ function About() {
             key={data.aboutTitle}
             title={data.aboutTitle}
             content={data.aboutContent}
-            alignSelf={'alignSelf'}
+            alignSelf={true}
           />
         ))}
       </section>

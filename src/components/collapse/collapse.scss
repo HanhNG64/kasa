@@ -1,6 +1,6 @@
 @import '../../utils/style/global.scss';
 
-$animation-duration: 0.3s;
+$animation-duration: 0.5s;
 
 @mixin arrowRotation($deg) {
   transform: rotate($deg);
@@ -69,12 +69,16 @@ $animation-duration: 0.3s;
     }
   }
 
-  &__content--open {
-    @include contentAnimation(open);
-  }
+  &__content {
+    transform: translateY(-100%);
+    max-height: 0px;
+    opacity: 0;
+    transition: all $animation-duration;
 
-  &__content--close {
-    @include contentAnimation(close);
+    &.open {
+      @include contentAnimation(open);
+      padding: 20px;
+    }
   }
 }
 
@@ -98,18 +102,5 @@ $animation-duration: 0.3s;
     transform: translateY(0);
     opacity: 1;
     max-height: 500px;
-  }
-}
-
-@keyframes close {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-    max-height: 500px;
-  }
-  to {
-    transform: translateY(-100%);
-    opacity: 0;
-    max-height: 0;
   }
 }
